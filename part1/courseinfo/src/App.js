@@ -10,12 +10,22 @@ const Header = (props) => {
   )
 }
 
-const Content = (asdf) => {
+const Part = (asdf) => {
   return (
     <div>
       <p>
-        {asdf.part}: {asdf.exercises}
+        {asdf.name}: {asdf.ex}
       </p>
+    </div>
+  )
+}
+
+const Content = (args) => {
+  return (
+    <div>
+      <Part name={args.part1} ex={args.ex1} />
+      <Part name={args.part2} ex={args.ex2} />
+      <Part name={args.part3} ex={args.ex3} />
     </div>
   )
 }
@@ -39,15 +49,14 @@ const App = () => {
   const part3 = 'State of a component'
   const exercises3 = 14
 
-  return [
+  return (
     <div>
       <Header course_name={course} />
-      <Content part={part1} exercises={exercises1} />
-      <Content part={part2} exercises={exercises2} />
-      <Content part={part3} exercises={exercises3} />
+      <Content part1={part1} part2={part2} part3={part3}
+        ex1={exercises1} ex2={exercises2} ex3={exercises3} />
       <Total sum={exercises1 + exercises2 + exercises3} />
     </div>
-  ]
+  )
 }
 
 export default App
