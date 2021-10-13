@@ -23,9 +23,9 @@ const Part = (asdf) => {
 const Content = (args) => {
   return (
     <div>
-      <Part name={args.part1} ex={args.ex1} />
-      <Part name={args.part2} ex={args.ex2} />
-      <Part name={args.part3} ex={args.ex3} />
+      <Part name={args.obj1.name} ex={args.obj1.exercises} />
+      <Part name={args.obj2.name} ex={args.obj2.exercises} />
+      <Part name={args.obj3.name} ex={args.obj3.exercises} />
     </div>
   )
 }
@@ -42,19 +42,26 @@ const Total = (args) => {
 
 const App = () => {
   const course = 'Half Stack application development'
-  const part1 = 'Fundamentals of React'
-  const exercises1 = 10
-  const part2 = 'Using props to pass data'
-  const exercises2 = 7
-  const part3 = 'State of a component'
-  const exercises3 = 14
+  const part1 = {
+    name: 'Fundamentals of React',
+    exercises: 10
+  }
+
+  const part2 = {
+    name: 'Using props to pass data',
+    exercises: 7
+  }
+
+    const part3 = {
+    name: 'State of a component',
+    exercises: 14
+  }
 
   return (
     <div>
       <Header course_name={course} />
-      <Content part1={part1} part2={part2} part3={part3}
-        ex1={exercises1} ex2={exercises2} ex3={exercises3} />
-      <Total sum={exercises1 + exercises2 + exercises3} />
+      <Content obj1={part1} obj2={part2} obj3={part3}/>
+      <Total sum={part1.exercises + part2.exercises + part3.exercises} />
     </div>
   )
 }
